@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.demo.encapsulationokhttp.adapter.JokeAdapter;
 import com.demo.encapsulationokhttp.bean.Joke;
 import com.demo.encapsulationokhttp.okhttp.CallBackDefault;
 import com.demo.encapsulationokhttp.okhttp.HttpResult;
@@ -22,6 +23,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
         initData();
         initListener();
     }
-//    setOnRefreshListener(OnRefreshListener listener)  设置下拉监听，当用户下拉的时候会去执行回调
-//setColorSchemeColors(int... colors) 设置 进度条的颜色变化，最多可以设置4种颜色
-//setProgressViewOffset(boolean scale, int start, int end) 调整进度条距离屏幕顶部的距离
-//setRefreshing(boolean refreshing) 设置SwipeRefreshLayout当前是否处于刷新状态，一般是在请求数据的时候设置为true，在数据被加载到View中后，设置为false。
+
 
     private void initView() {
         swrefresh.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
@@ -67,13 +66,22 @@ public class MainActivity extends AppCompatActivity {
         OkhttpUtil.okHttpPost(Constant.JOKE, map, new CallBackDefault<Joke>() {
             @Override
             public void onResponse(HttpResult<Joke> response) {
+
                 if (response.isSuccess()) {
+                    //请求成功
                     initData(response.data);
+
                 } else if (response.isFail()) {
+                    //请求失败
                     Toast.makeText(MainActivity.this, response.msg, Toast.LENGTH_SHORT).show();
                 }
             }
 
+            @Override
+            public void onFailure(Call call, Exception e) {
+                super.onFailure(call, e);
+//                网络连接失败
+            }
         });
     }
 
