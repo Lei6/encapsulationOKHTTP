@@ -3,10 +3,11 @@
 
 更多方式请看：OkhttpUtil
 
-
 回调接口可以使用  CallBackDefault（封装有gson解析）
 直接在onResponse进行数据操作即可，不用再解析，适用于格式统一的json串
- 如：{
+ 
+如：
+      {
        "code": 1,
        "msg": "数据返回成功",
        "data":{
@@ -23,6 +24,7 @@
            ]
        }
    }
+
 
 或   CallBackUtil（自行解析）
 需要在onResponse进行解析，开启线程进行数据展示或其他操作
