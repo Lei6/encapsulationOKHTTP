@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/joke_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#1A1A1A"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/joke_time"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="#999999"
+        android:textSize="13sp"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>
