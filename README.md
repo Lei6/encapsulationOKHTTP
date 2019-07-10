@@ -29,7 +29,7 @@
  需要在onResponse进行解析，开启线程进行数据展示或其他操作
 
 post请求
-OkhttpUtil.okHttpPost(Constant.JOKE, map, new CallBackDefault<Joke>() {
+        OkhttpUtil.okHttpPost(Constant.JOKE, map, new CallBackDefault<Joke>() {
             @Override
             public void onResponse(HttpResult<Joke> response) {
 
@@ -42,7 +42,7 @@ OkhttpUtil.okHttpPost(Constant.JOKE, map, new CallBackDefault<Joke>() {
         });
 
 post请求：map请求体，tokanMap请求头
-OkhttpUtil.okHttpPost(url, map, tokenMap, new CallBackDefault<AuctionDetailsBean>() {
+            OkhttpUtil.okHttpPost(url, map, tokenMap, new CallBackDefault<AuctionDetailsBean>() {
                     @Override
                     public void onResponse(HttpResult<AuctionDetailsBean> response) {
 
